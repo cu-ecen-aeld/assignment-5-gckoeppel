@@ -5,6 +5,7 @@
 source shared.sh
 
 EXTERNAL_REL_BUILDROOT=../base_external
+ASSIGNMENT_SRCDIR=../../assignment-1-gckoeppel
 git submodule init
 git submodule sync
 git submodule update
@@ -28,6 +29,6 @@ then
 else
 	echo "USING EXISTING BUILDROOT CONFIG"
 	echo "To force update, delete .config or make changes using make menuconfig and build again."
-	make -C buildroot BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT}
+	make -C buildroot BR2_EXTERNAL=${EXTERNAL_REL_BUILDROOT} AESD_ASSIGNMENTS_OVERRIDE_SRCDIR=${ASSIGNMENT_SRCDIR}
 
 fi
